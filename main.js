@@ -1,8 +1,15 @@
-var http = require('http');
-var url = require('url');
+
+
+
+
+const express = require('express')
+const path = require('path')
+const cool = require('cool-ascii-faces')
+const PORT = process.env.PORT || 5000
+const admin = require('firebase-admin');
 
 var txt = "tess";
-var admin = require('firebase-admin');
+
 
 // Fetch the service account key JSON file contents
 var serviceAccount = require("./serviceacc.json");
@@ -28,12 +35,11 @@ ref.once("value", function(snapshot) {
 });
 
 
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/html'});
-
-  //ref.set("def");
 
 
-
-  res.end(txt);
-}).listen(8080);
+express()
+  .set('view engine', 'ejs')
+  .get('/cool', (req, res) => res.send(cool()))
+  .get('/', (req, res) => res.end(txt))
+  .get('/set',(req, res) => {ref.set("def");res.end(txt)})
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
