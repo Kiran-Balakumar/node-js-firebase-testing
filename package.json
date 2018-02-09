@@ -1,0 +1,24 @@
+{
+  "name": "node-js-firebase-testing",
+  "version": "1.0.0",
+  "description": "sample test common to git and heroku",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kiran-Balakumar/node-js-firebase-testing.git"
+  },
+  "keywords": [
+    "git",
+    "heroku",
+    "firebase"
+  ],
+  "author": "Kiran B",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kiran-Balakumar/node-js-firebase-testing/issues"
+  },
+  "homepage": "https://github.com/Kiran-Balakumar/node-js-firebase-testing#readme"
+}
