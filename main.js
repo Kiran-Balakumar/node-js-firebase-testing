@@ -1,7 +1,3 @@
-
-
-
-
 const express = require('express')
 const path = require('path')
 const cool = require('cool-ascii-faces')
@@ -34,12 +30,12 @@ ref.once("value", function(snapshot) {
   console.log("The read failed: " + errorObject.code);
 });
 
-
-
+var func = require('./adddata.js');
 
 express()
   .set('view engine', 'ejs')
   .get('/cool', (req, res) => res.send(cool()))
   .get('/', (req, res) => res.end(txt))
-  .get('/set',(req, res) => {ref.set("def");res.end(txt)})
+  .get('/disp',(req,res) => res.send(txt))
+  .get('/set',(req,res) => func.add(req,res,ref))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
